@@ -1,6 +1,8 @@
+// 往左移動
 input.onButtonPressed(Button.A, function () {
     主角.change(LedSpriteProperty.X, -1)
 })
+// 發射子彈
 input.onButtonPressed(Button.AB, function () {
     子彈 = game.createSprite(主角.get(LedSpriteProperty.X), 主角.get(LedSpriteProperty.Y))
     for (let index = 0; index < 4; index++) {
@@ -9,6 +11,7 @@ input.onButtonPressed(Button.AB, function () {
     }
     子彈.delete()
 })
+// 往右移動
 input.onButtonPressed(Button.B, function () {
     主角.change(LedSpriteProperty.X, 1)
 })
@@ -18,6 +21,7 @@ game.setScore(0)
 主角 = game.createSprite(2, 4)
 let 飛機 = game.createSprite(0, 0)
 let 飛機2 = game.createSprite(1, 0)
+// 當飛機碰到就死了
 basic.forever(function () {
     if (飛機.isTouching(主角)) {
         game.gameOver()
